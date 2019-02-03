@@ -226,4 +226,13 @@ class SquareArcExpanderView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : SquareArcExpanderView {
+            val view : SquareArcExpanderView = SquareArcExpanderView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }

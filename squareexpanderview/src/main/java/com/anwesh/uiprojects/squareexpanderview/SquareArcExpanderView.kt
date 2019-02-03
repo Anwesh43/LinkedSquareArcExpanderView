@@ -203,4 +203,26 @@ class SquareArcExpanderView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SquareArcExpanderView) {
+
+        private val animator : Animator = Animator(view)
+        private val sae : SquareArcExpander = SquareArcExpander(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            sae.draw(canvas, paint)
+            animator.animate {
+                sae.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sae.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }

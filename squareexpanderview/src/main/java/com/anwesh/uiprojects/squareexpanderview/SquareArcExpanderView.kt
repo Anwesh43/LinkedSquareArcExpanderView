@@ -232,7 +232,7 @@ class SquareArcExpanderView(ctx : Context) : View(ctx) {
         fun create(activity : Activity) : SquareArcExpanderView {
             val view : SquareArcExpanderView = SquareArcExpanderView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
